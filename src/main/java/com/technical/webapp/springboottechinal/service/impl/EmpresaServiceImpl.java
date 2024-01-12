@@ -1,12 +1,12 @@
-package service.impl;
+package com.technical.webapp.springboottechinal.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import models.Entity.Empresa;
-import models.dao.EmpresaDao;
-import service.IEmpresa;
+import com.technical.webapp.springboottechinal.models.Entity.Empresa;
+import com.technical.webapp.springboottechinal.models.dao.EmpresaDao;
+import com.technical.webapp.springboottechinal.service.IEmpresa;
 
 @Service
 public class EmpresaServiceImpl implements IEmpresa{

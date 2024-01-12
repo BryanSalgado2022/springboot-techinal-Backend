@@ -1,4 +1,4 @@
-package models.Entity;
+package com.technical.webapp.springboottechinal.models.Entity;
 
 import java.io.Serializable;
 
