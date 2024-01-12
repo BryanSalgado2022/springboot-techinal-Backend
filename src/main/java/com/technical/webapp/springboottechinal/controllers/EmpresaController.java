@@ -1,5 +1,8 @@
 package com.technical.webapp.springboottechinal.controllers;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
@@ -16,7 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.technical.webapp.springboottechinal.models.Entity.Empresa;
 import com.technical.webapp.springboottechinal.models.dto.EmpresaDto;
-import com.technical.webapp.springboottechinal.models.payload.MensajeResponse;
 import com.technical.webapp.springboottechinal.service.IEmpresa;
 
 
@@ -55,18 +57,16 @@ public class EmpresaController {
 
     @DeleteMapping("/empresa/{id}")
     public ResponseEntity<?> delete(@PathVariable Integer id){
+        Map<String, Object> response = new HashMap<>();
         try {
             Empresa empresaDelete = empresaService.findById(id);
             empresaService.deleteEmpresa(empresaDelete);
             return new ResponseEntity<>(empresaDelete, HttpStatus.NO_CONTENT);
         } catch (DataAccessException exDae) {
             //control para error 500 en caso de borrar una identidad que no existe
-            return new ResponseEntity<>(MensajeResponse
-                    .builder()
-                    .mensaje(exDae.getMessage())
-                    .object(null)
-                    .build()
-            , HttpStatus.NOT_FOUND);
+            response.put("Mensaje", exDae.getMessage());
+            response.put("Empresa", null);
+            return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
     }
     
