@@ -1,6 +1,6 @@
-package service;
+package com.technical.webapp.springboottechinal.service;
 
-import models.Entity.Empresa;
+import com.technical.webapp.springboottechinal.models.Entity.Empresa;
 
 public interface IEmpresa {
     Empresa saveEmpresa(Empresa empresa);
