@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.technical.webapp.springboottechinal.models.Entity.Empresa;
 import com.technical.webapp.springboottechinal.models.dao.EmpresaDao;
+import com.technical.webapp.springboottechinal.models.dto.EmpresaDto;
 import com.technical.webapp.springboottechinal.service.IEmpresa;
 
 @Service
@@ -16,22 +17,27 @@ public class EmpresaServiceImpl implements IEmpresa{
 
     @Transactional
     @Override
-    public Empresa saveEmpresa(Empresa empresa) {
+    public Empresa saveEmpresa(EmpresaDto empresaDto) {
+        Empresa empresa = Empresa.builder().Nit(empresaDto.getNit())
+        .Nombre(empresaDto.getNombre())
+        .Direccion(empresaDto.getDireccion())
+        .Telefono(empresaDto.getTelefono())
+        .build();
         return empresaDao.save(empresa);
     }
     
-
-    @Transactional(readOnly = true)
+    @Transactional
     @Override
     public void deleteEmpresa(Empresa empresa) {
         empresaDao.delete(empresa);
     }
-
-
-    @Transactional
+    
+    @Transactional(readOnly = true)
     @Override
     public Empresa findById(Integer id) {
         return empresaDao.findById(id).orElse(null);
     }
+
+   
     
 }

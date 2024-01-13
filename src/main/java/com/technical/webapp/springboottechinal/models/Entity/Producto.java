@@ -1,5 +1,6 @@
 package com.technical.webapp.springboottechinal.models.Entity;
 
+import java.io.Serializable;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -9,7 +10,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import java.io.Serializable;
+
 
 @Data
 @AllArgsConstructor
@@ -17,19 +18,24 @@ import java.io.Serializable;
 @ToString
 @Builder
 @Entity
-@Table(name = "Empresa")
-public class Empresa implements Serializable{
+@Table(name = "Producto")
+public class Producto implements Serializable{
     @Id
-    @Column(name = "Nit")
-    private Integer Nit;
+    @Column(name = "Codigo")
+    private Integer Codigo;
 
     @Column(name = "Nombre")
     private String Nombre;
 
-    @Column(name = "Dirección")
-    private String Direccion;
+    @Column(name = "Caracteristicas")
+    private String Caracteristicas;
     
-    @Column(name = "Telefono")
-    private String Telefono;
+    @Column(name = "Valor")
+    private Integer Valor;
 
+    @Column(name = "FkDivisa")
+    private Integer Divisa;
+
+    @Column(name = "FkEmpresa")
+    private Integer Empresa;
 }
