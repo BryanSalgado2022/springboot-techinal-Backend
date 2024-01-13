@@ -44,7 +44,7 @@ public class EmpresaController {
     }
 
     //Se usa nuevamente el save gracias al uso de CrudRpository el cual identifica si el registro ya existe para actualizarlo
-    @PutMapping("/empresa")
+    @PutMapping("/empresa/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public EmpresaDto update(@RequestBody EmpresaDto empresaDto){
         Empresa actualizarEmpresa = empresaService.saveEmpresa(empresaDto);

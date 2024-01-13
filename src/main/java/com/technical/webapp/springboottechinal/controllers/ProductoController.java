@@ -45,7 +45,7 @@ public class ProductoController {
     }
 
     //Se usa nuevamente el save gracias al uso de CrudRpository el cual identifica si el registro ya existe para actualizarlo
-    @PutMapping("/producto")
+    @PutMapping("/producto/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public ProductoDto update(@RequestBody ProductoDto productoDto){
         Producto actualizarProducto = productoService.saveProducto(productoDto);
