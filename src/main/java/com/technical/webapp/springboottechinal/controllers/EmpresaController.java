@@ -1,6 +1,7 @@
 package com.technical.webapp.springboottechinal.controllers;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,7 @@ public class EmpresaController {
     }
 
     //Se usa nuevamente el save gracias al uso de CrudRpository el cual identifica si el registro ya existe para actualizarlo
-    @PutMapping("/empresa")
+    @PutMapping("/empresa/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public EmpresaDto update(@RequestBody EmpresaDto empresaDto){
         Empresa actualizarEmpresa = empresaService.saveEmpresa(empresaDto);
@@ -81,5 +82,9 @@ public class EmpresaController {
         .Telefono(empresa.getTelefono())
         .build();
     }
-    
+
+    @GetMapping("/empresas")
+    public ResponseEntity<Iterable<Empresa>> findAll(){
+        return ResponseEntity.ok(empresaService.getAll());
+    }
 }

@@ -9,4 +9,6 @@ public interface IProducto {
     Producto findById(Integer id);
 
     void deleteProducto(Producto producto);
+
+    Iterable<Producto> getAll();
 }

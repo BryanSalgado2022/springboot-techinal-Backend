@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.technical.webapp.springboottechinal.models.Entity.Empresa;
 import com.technical.webapp.springboottechinal.models.Entity.Producto;
 import com.technical.webapp.springboottechinal.models.dao.ProductoDao;
 import com.technical.webapp.springboottechinal.models.dto.ProductoDto;
@@ -38,6 +39,11 @@ public class ProductoServiceImpl implements IProducto{
     @Override
     public Producto findById(Integer id) {
         return productoDao.findById(id).orElse(null);
+    }
+
+    @Override
+    public Iterable<Producto> getAll() {
+        return productoDao.findAll();
     }
 
 

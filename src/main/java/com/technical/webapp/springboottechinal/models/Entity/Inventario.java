@@ -17,19 +17,17 @@ import java.io.Serializable;
 @ToString
 @Builder
 @Entity
-@Table(name = "usuario")
-public class Usuario implements Serializable{
+@Table(name = "inventario")
+public class Inventario implements Serializable{
     @Id
-    @Column(name = "id_usuario")
-    private Integer idusuario;
+    @Column(name = "id_inventario")
+    private Integer IdInventario;
 
-    @Column(name = "correo")
-    private String correo;
+    @Column(name = "fk_empresa")
+    private Integer Empresa;
 
-    @Column(name = "contraseña")
-    private String contraseña;
+    @Column(name = "fk_producto")
+    private Integer Producto;
     
-    @Column(name = "fk_tipo_usuario")
-    private String tipoUsuario;
 
 }

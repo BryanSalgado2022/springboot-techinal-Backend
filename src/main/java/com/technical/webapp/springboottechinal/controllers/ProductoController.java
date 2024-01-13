@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.technical.webapp.springboottechinal.models.Entity.Empresa;
 import com.technical.webapp.springboottechinal.models.Entity.Producto;
 import com.technical.webapp.springboottechinal.models.dto.ProductoDto;
 import com.technical.webapp.springboottechinal.service.IProducto;
@@ -44,7 +45,7 @@ public class ProductoController {
     }
 
     //Se usa nuevamente el save gracias al uso de CrudRpository el cual identifica si el registro ya existe para actualizarlo
-    @PutMapping("/producto")
+    @PutMapping("/producto/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public ProductoDto update(@RequestBody ProductoDto productoDto){
         Producto actualizarProducto = productoService.saveProducto(productoDto);
@@ -85,6 +86,11 @@ public class ProductoController {
         .Divisa(producto.getDivisa())
         .Empresa(producto.getEmpresa())
         .build();
+    }
+
+    @GetMapping("/productos")
+    public ResponseEntity<Iterable<Producto>> findAll(){
+        return ResponseEntity.ok(productoService.getAll());
     }
     
 }

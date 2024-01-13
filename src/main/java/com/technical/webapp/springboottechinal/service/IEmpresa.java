@@ -9,4 +9,7 @@ public interface IEmpresa {
     Empresa findById(Integer id);
 
     void deleteEmpresa(Empresa empresa);
+
+    Iterable<Empresa> getAll();
+
 }
