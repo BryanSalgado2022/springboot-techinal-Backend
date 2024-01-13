@@ -1,7 +1,5 @@
 package com.technical.webapp.springboottechinal.models.Entity;
 
-import java.io.Serializable;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -11,19 +9,27 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-//Se usa Lombok para crear todos los metodos de acceso y constructores
+import java.io.Serializable;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Builder
 @Entity
-@Table(name = "Cliente")
-public class Cliente implements Serializable{
+@Table(name = "usuario")
+public class Usuario implements Serializable{
     @Id
-    @Column(name = "Identificacion")
-    private Integer Identificacion;
+    @Column(name = "idUsuario")
+    private Integer idusuario;
 
-    @Column(name = "Nombre")
-    private String Nombre;
+    @Column(name = "correo")
+    private String correo;
+
+    @Column(name = "contraseña")
+    private String contraseña;
+    
+    @Column(name = "fk_tipo_usuario")
+    private String tipoUsuario;
+
 }

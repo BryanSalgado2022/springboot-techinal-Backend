@@ -68,7 +68,7 @@ public class ProductoController {
         } catch (DataAccessException exDae) {
             //control para error 500 en caso de borrar una identidad que no existe
             response.put("Mensaje", exDae.getMessage());
-            response.put("Empresa", null);
+            response.put("Producto", null);
             return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
         }
     }
