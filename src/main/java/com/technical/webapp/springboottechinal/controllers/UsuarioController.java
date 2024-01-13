@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.technical.webapp.springboottechinal.models.Entity.Producto;
 import com.technical.webapp.springboottechinal.models.Entity.Usuario;
 import com.technical.webapp.springboottechinal.models.dto.UsuarioDto;
 import com.technical.webapp.springboottechinal.service.IUsuario;
@@ -57,7 +58,7 @@ public class UsuarioController {
         }
     }
     
-    @GetMapping("/empresa/{id}")
+    @GetMapping("/usuario/{id}")
     @ResponseStatus(HttpStatus.OK)
     public UsuarioDto showById(@PathVariable Integer id){
         Usuario actualizarUsuario =  usuarioService.findById(id);
@@ -67,6 +68,11 @@ public class UsuarioController {
         .contraseña(actualizarUsuario.getContraseña())
         .tipoUsuario(actualizarUsuario.getTipoUsuario())
         .build();
+    }
+
+    @GetMapping("/usuarios")
+    public ResponseEntity<Iterable<Usuario>> findAll(){
+        return ResponseEntity.ok(usuarioService.getAll());
     }
     
 }

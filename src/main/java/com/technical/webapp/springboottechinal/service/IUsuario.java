@@ -9,4 +9,6 @@ public interface IUsuario {
     Usuario findById(Integer id);
 
     void deleteUsuario(Usuario usuario);
+
+    Iterable<Usuario> getAll();
 }

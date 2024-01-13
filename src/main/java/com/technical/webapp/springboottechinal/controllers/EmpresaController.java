@@ -1,6 +1,7 @@
 package com.technical.webapp.springboottechinal.controllers;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,5 +82,9 @@ public class EmpresaController {
         .Telefono(empresa.getTelefono())
         .build();
     }
-    
+
+    @GetMapping("/empresas")
+    public ResponseEntity<Iterable<Empresa>> findAll(){
+        return ResponseEntity.ok(empresaService.getAll());
+    }
 }

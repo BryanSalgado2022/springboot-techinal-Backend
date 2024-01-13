@@ -20,7 +20,7 @@ import java.io.Serializable;
 @Table(name = "usuario")
 public class Usuario implements Serializable{
     @Id
-    @Column(name = "idUsuario")
+    @Column(name = "id_usuario")
     private Integer idusuario;
 
     @Column(name = "correo")

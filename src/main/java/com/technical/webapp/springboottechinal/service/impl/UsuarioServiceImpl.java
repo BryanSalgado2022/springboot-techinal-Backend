@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.technical.webapp.springboottechinal.models.Entity.Empresa;
+import com.technical.webapp.springboottechinal.models.Entity.Producto;
 import com.technical.webapp.springboottechinal.models.Entity.Usuario;
 import com.technical.webapp.springboottechinal.models.dao.EmpresaDao;
 import com.technical.webapp.springboottechinal.models.dao.UsuarioDao;
@@ -43,4 +44,8 @@ public class UsuarioServiceImpl implements IUsuario{
         return usuarioDao.findById(id).orElse(null);
     }   
     
+    @Override
+    public Iterable<Usuario> getAll() {
+        return usuarioDao.findAll();
+    }
 }
