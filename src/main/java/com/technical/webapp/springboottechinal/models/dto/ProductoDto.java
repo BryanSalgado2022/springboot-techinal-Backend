@@ -20,6 +20,6 @@ public class ProductoDto implements Serializable{
     private String Caracteristicas;
     private Integer Valor;
     private Integer Divisa;
-    private Integer Empresa;
+    private String Empresa;
 
 }

@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.technical.webapp.springboottechinal.models.Entity.Empresa;
+
 import com.technical.webapp.springboottechinal.models.Entity.Producto;
 import com.technical.webapp.springboottechinal.models.dao.ProductoDao;
 import com.technical.webapp.springboottechinal.models.dto.ProductoDto;
